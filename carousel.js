@@ -1,20 +1,21 @@
 if (Meteor.isClient) {
   Template.document_ready.rendered = function(){
-    $("#owl-demo").owlCarousel({
- 
-      navigation : true, // Show next and prev buttons
-      slideSpeed : 300,
-      paginationSpeed : 400,
-      singleItem:true
- 
-      // "singleItem:true" is a shortcut for:
-      // items : 1, 
-      // itemsDesktop : false,
-      // itemsDesktopSmall : false,
-      // itemsTablet: false,
-      // itemsMobile : false
- 
-    });
+    $('.carousel').carousel({
+      interval: false
+    })
+    $('.carousel').carousel('pause')
+
+    var car = document.getElementById('carousel-example-generic');
+    var hammertime = new Hammer(car); 
+    hammertime.get('swipe').set({direction: Hammer.DIRECTION_ALL})
+    hammertime.on('swipeleft', function(){
+        alert('swiping')
+        $('.carousel').carousel('next'); 
+    })
+
+    $('.carousel').hammer().on('swiperight', function(){
+      $('.carousel').carousel('prev'); 
+    })
   }
 }
 
