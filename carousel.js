@@ -6,15 +6,15 @@ if (Meteor.isClient) {
     $('.carousel').carousel('pause')
 
     var car = document.getElementById('carousel-example-generic');
-    var hammertime = new Hammer(car); 
-    hammertime.get('swipe').set({direction: Hammer.DIRECTION_ALL})
-    hammertime.on('swipeleft', function(){
-        alert('swiping')
+    var hammerswipe = new Hammer(car); 
+    hammerswipe.get('swipe').set({direction: Hammer.DIRECTION_ALL})
+
+    hammerswipe.on('swipeleft', function(){
         $('.carousel').carousel('next'); 
     })
 
-    $('.carousel').hammer().on('swiperight', function(){
-      $('.carousel').carousel('prev'); 
+    hammerswipe.on('swiperight', function(){
+        $('.carousel').carousel('prev'); 
     })
   }
 }
