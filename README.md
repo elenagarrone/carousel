@@ -10,11 +10,6 @@ Install meteor:
 $ curl https://install.meteor.com/ | sh
 ```
 
-Create a meteor app:
-```shell
-$ meteor create <app-name>
-```
-
 Install Bootstrap:
 ```shell
 $ meteor add mizzao:bootstrap-3
